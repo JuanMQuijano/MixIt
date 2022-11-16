@@ -37,6 +37,14 @@ class ActiveRecord
         return static::$alertas;
     }
 
+    //Consulta Plana de SQL, utilizar cuando los métodos del modelo no son sufiente
+    public static function SQL($consulta)
+    {
+        $query = $consulta;
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // Registros - CRUD
     public function guardar()
     {
@@ -78,8 +86,8 @@ class ActiveRecord
 
         return array_shift($resultado);
     }
-    
-      //Busca todos los registros que pertenecen a un ID
+
+    //Busca todos los registros que pertenecen a un ID
     public static function belongsTo($columna, $valor)
     {
         $query = "SELECT * FROM " . static::$tabla  . " WHERE ${columna} = '${valor}'";
@@ -152,6 +160,16 @@ class ActiveRecord
         if ($resultado) {
             $this->borrarImagen();
         }
+
+        return $resultado;
+    }
+
+    // Eliminar un registro
+    public function eliminarCarrito()
+    {
+        // Eliminar el registro
+        $query = "DELETE FROM "  . static::$tabla . " WHERE id = " . self::$db->escape_string($this->id) . " LIMIT 1";
+        $resultado = self::$db->query($query);
 
         return $resultado;
     }
@@ -234,9 +252,13 @@ class ActiveRecord
     public function borrarImagen()
     {
         //Comprobar si existe el archivo
-        // $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
-        // if ($existeArchivo) {
-        //     unlink(CARPETA_IMAGENES . $this->imagen);
-        // }
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+        $existeArchivo2 = file_exists(CARPETA_IMAGENES2 . $this->imagen);
+        if ($existeArchivo) {
+            unlink(CARPETA_IMAGENES . $this->imagen);
+        }
+        if ($existeArchivo2) {
+            unlink(CARPETA_IMAGENES2 . $this->imagen);
+        }
     }
 }

@@ -1,0 +1,29 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.crear {
+  h1 {
+    text-align: left;
+  }
+
+  .formulario {
+    width: 100%;
+    border: 1px solid rgb(216, 203, 203);
+    border-radius: 1rem;
+    padding: 1rem;
+
+    .campo {      
+      label{
+        margin: 0;
+      }
+
+      img {                
+        width: 400px;
+      }
+    }
+
+    option {
+      text-transform: uppercase;
+    }
+  }
+}

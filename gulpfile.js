@@ -17,6 +17,7 @@ const paths = {
   scss: "src/scss/**/*.scss",
   js: "src/js/**/*.js",
   imagenes: "src/img/**/*",
+  imagenesPrendas: "src/imgPrendas/**/*"
 };
 
 // css es una función que se puede llamar automaticamente
@@ -46,6 +47,13 @@ function imagenes() {
     .pipe(notify({ message: "Imagen Completada" }));
 }
 
+function imagenesPrendas() {
+  return src(paths.imagenesPrendas)
+    .pipe(cache(imagemin({ optimizationLevel: 3 })))
+    .pipe(dest("./public/build/imgPrendas"))
+    .pipe(notify({ message: "Imagen Completada" }));
+}
+
 function versionWebp() {
   return src(paths.imagenes)
     .pipe(webp())
@@ -57,6 +65,7 @@ function watchArchivos() {
   watch(paths.scss, css);
   watch(paths.js, javascript);
   watch(paths.imagenes, imagenes);
+  watch(paths.imagenesPrendas, imagenesPrendas);
   watch(paths.imagenes, versionWebp);
 }
 
@@ -66,6 +75,7 @@ exports.default = parallel(
   css,
   javascript,
   imagenes,
+  imagenesPrendas,
   versionWebp,
   watchArchivos
 );

@@ -32,6 +32,7 @@
 }
 
 @mixin boton($bgColor, $colorTexto) {
+  width: 100%;
     background-color: $bgColor;
     padding: 1.5rem 4rem;
     color: $colorTexto;
@@ -43,7 +44,6 @@
     transition-duration: .3s;
     text-align: center;
     display: block;
-    width: 100%;
     @include tablet {
         width: auto;
     }

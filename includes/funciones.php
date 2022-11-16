@@ -1,5 +1,8 @@
 <?php
 
+define('CARPETA_IMAGENES', $_SERVER['DOCUMENT_ROOT'] . '/../src/imgPrendas/');
+define('CARPETA_IMAGENES2', $_SERVER['DOCUMENT_ROOT'] . '/build/imgPrendas/');
+
 function debuguear($variable): string
 {
     echo "<pre>";
@@ -16,20 +19,24 @@ function s($html): string
 }
 
 //Funcion que revisa que el usuario este autenticado
-function isAuth(): void
+function isNotLogged(): void
 {
     if (!isset($_SESSION)) {
         session_start();
     }
 
     if (!isset($_SESSION['login'])) {
-        header('Location: /');
+        header('Location: /iniciar-sesion');
     }
 }
 
-function isAdmin(): void
+function isLogged(): void
 {
-    if (!isset($_SESSION['admin'])) {
+    if (!isset($_SESSION)) {
+        session_start();
+    }
+
+    if (isset($_SESSION['login'])) {
         header('Location: /');
     }
 }

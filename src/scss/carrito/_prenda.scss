@@ -1,0 +1,68 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.alertaprenda {
+  margin-top: 5rem;
+}
+
+.prenda {
+  margin-top: 5rem;
+
+  img {
+    width: 100%;
+  }
+
+  .boton {
+    @include m.boton(v.$verdeVivo, #fff);
+  }
+
+  @include m.tablet {
+    margin-top: 10rem;
+    display: flex;
+
+    img {
+      width: 350px;
+    }
+
+    div {
+      margin-left: 8rem;
+
+      p {
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .boton {
+      @include m.boton(v.$verdeVivo, #fff);
+    }
+  }
+
+  @include m.desktopL {
+    margin-top: 5rem;
+    display: flex;
+
+    img {
+      width: 450px;
+    }
+
+    div {
+      margin-left: 8rem;
+
+      p {
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .boton {
+      @include m.boton(v.$verdeVivo, #fff);
+    }
+  }
+
+  @include m.desktopXL {
+    margin-top: 10rem;
+  }
+}

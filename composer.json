@@ -1,0 +1,23 @@
+{
+  "name": "juan_q/mixit",
+  "description": "MixIt Project",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "MVC\\": "./",
+      "Controllers\\": "./controllers",
+      "Model\\": "./models",
+      "Classes\\": "./classes"
+    }
+  },
+  "authors": [
+    {
+      "name": "Juan Quijano"
+    }
+  ],
+  "require": {
+    "vlucas/phpdotenv": "^5.5",
+    "phpmailer/phpmailer": "^6.6",
+    "intervention/image": "^2.7"
+  }
+}

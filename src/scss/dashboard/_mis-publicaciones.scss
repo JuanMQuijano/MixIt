@@ -1,0 +1,40 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.mis-publicaciones {
+  .boton {
+    @include m.boton(v.$verdeVivo, #fff);
+    margin: 2rem auto;
+
+    @include m.tablet {
+      width: 30%;
+    }
+  }
+
+  .prendas {
+    .prenda {
+      @include m.tablet {
+        height: 550px;
+      }
+
+      .acciones {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: none;
+
+        .boton {
+          @include m.boton(v.$verdeVivo, #fff);
+          padding: 1rem;
+          width: 50%;
+          margin: 0;
+        }
+
+        .eliminar {
+          @include m.boton(v.$rojo, #fff);
+          padding: 1rem;
+        }
+      }
+    }
+  }
+}

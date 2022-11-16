@@ -1,0 +1,24 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.mensaje {
+  margin-top: 5rem;
+
+  h1 {
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .alerta {
+    font-size: 1.6rem;
+  }
+
+  .boton {
+    @include m.boton(v.$verdeVivo, #fff);
+    margin-top: 2rem;
+
+    @include m.tablet {
+        width: 30%;
+    }
+  }
+}

@@ -1,0 +1,1 @@
+function iniciarApp(){const n=document.querySelector("#btnMenu");document.querySelector("#navBar");n.onclick=mostrarNavBar}function mostrarNavBar(){navBar.classList.toggle("mostrar")}document.addEventListener("DOMContentLoaded",(function(){iniciarApp()}));

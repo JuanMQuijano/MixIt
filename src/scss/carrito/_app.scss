@@ -1,0 +1,58 @@
+@use "base/mixins" as m;
+@use "base/variables" as v;
+
+.tabla {
+  width: 100%;
+
+  tr {
+    td {
+      margin: 0;
+      padding: 0;
+      font-size: 1.5rem;
+    }
+    .mostrar {
+      display: none;
+    }
+  }
+
+  @include m.tablet {
+    width: 90%;
+
+    tr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+
+      th,
+      td {
+        font-size: 1.8rem;
+      }
+      .mostrar {
+        display: block;
+      }
+    }
+  }
+
+  @include m.desktopXL {
+    td {
+      &:first-of-type(.mostrar) {
+        width: 20%;
+        background-color: red;
+      }
+    }
+    th {
+      background-color: red;
+      gap: 50rem;
+    }
+    td {
+      img {
+        width: 250px;
+      }
+    }
+  }
+}
+
+.boton-pagar {
+  @include m.boton(v.$verdeVivo, #fff);
+}
